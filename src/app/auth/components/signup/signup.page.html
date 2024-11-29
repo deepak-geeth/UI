@@ -1,0 +1,65 @@
+<ion-content>
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="success">GeethIO-SignUp</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Email field: Show only if not in Google SignUp mode -->
+        <ion-item *ngIf="!isGoogleSignUp">
+          <ion-input
+            [(ngModel)]="email"
+            label="Email"
+            labelPlacement="floating"
+            placeholder="Enter Email"
+          ></ion-input>
+        </ion-item>
+        <!-- Password field -->
+        <ion-item>
+          <ion-input
+            [(ngModel)]="password"
+            type="password"
+            label="Password"
+            labelPlacement="floating"
+            placeholder="Enter Password"
+          ></ion-input>
+        </ion-item>
+        <!-- Confirm Password field: Show only if not in Google SignUp mode -->
+        <ion-item >
+          <ion-input
+            [(ngModel)]="confirmPassword"
+            type="password"
+            label="Confirm Password"
+            labelPlacement="floating"
+            placeholder="Confirm Password"
+          ></ion-input>
+        </ion-item>
+        <!-- Buttons -->
+        <ion-button
+          *ngIf="!isGoogleSignUp"
+          color="secondary"
+          size="full"
+          (click)="signUp()"
+        >
+          Signup
+        </ion-button>
+        <ion-button
+          *ngIf="!isGoogleSignUp"
+          color="primary"
+          size="full"
+          (click)="signUpWithGoogle()"
+        >
+          SignUp with Google
+        </ion-button>
+        <ion-button
+          *ngIf="isGoogleSignUp"
+          color="primary"
+          size="full"
+          (click)="submitGooglePassword()"
+        >
+          Complete Signup
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
